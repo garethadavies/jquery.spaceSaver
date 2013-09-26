@@ -72,6 +72,11 @@ $('#container').spaceSaver({
 		this.settings = $.extend( {}, defaults, options );
 		this._defaults = defaults;
 		this._name = pluginName;
+
+		// Resize event listener initial state 
+		this.resizeInitialised = false,
+
+		// Call the init method to start it all off
 		this.init();
 
 	}
@@ -108,16 +113,16 @@ $('#container').spaceSaver({
 
 					// Start the toggle event listener
 					_this.toggleEvent();
-
-					// Do we require the window resize event listener?
-					if (_this.settings.resizable) {
-
-						// Start the resize event listener
-						_this.resizeEvent();
-
-					}
 					
 				});
+
+			}
+
+			// Do we require the window resize event listener?
+			if (_this.settings.resizable && !_this.resizeInitialised) {
+
+				// Start the resize event listener
+				_this.resizeEvent();
 
 			}
 
@@ -204,22 +209,43 @@ $('#container').spaceSaver({
 
 			var _this = this;
 
+			// Detect the current window height and width
+			this.windowHeight = $(window).height();
+			this.windowWidth = $(window).width();
+
 			// Detect any window resizes
 			$(window).on('debouncedresize', function(e) {
 
-				// Remove any previous height settings
-				$(_this.element).removeAttr('style');
+				// Get the current height and width
+				var
+				currentHeight = $(window).height(),
+				currentWidth = $(window).width();
 
-				// Unbind the footer click event
-				$(_this.element).next('.space-saver-footer').unbind('click');
+				// Detect any actual changes in window size (IE fix)
+				if (currentHeight !== _this.windowHeight || currentWidth !== _this.windowWidth) {
 
-				// Remove the current footer
-				$(_this.element).next('.space-saver-footer').remove();
+		      // Remove any previous height settings
+					$(_this.element).removeAttr('style');
 
-				// Re-Initialise
-				_this.init(_this);
+					// Unbind the footer click event
+					$(_this.element).next('.space-saver-footer').unbind('click');
+
+					// Remove the current footer
+					$(_this.element).next('.space-saver-footer').remove();
+
+					// Update the window height and width values
+		      _this.windowHeight = currentHeight;
+					_this.windowWidth = currentWidth;
+
+					// Re-Initialise
+					_this.init(_this);
+		   	
+		   	}
 
 			});
+
+			// Set resize initialized to true
+			this.resizeInitialised = true;
 
 		}
 

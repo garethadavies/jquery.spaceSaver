@@ -33,7 +33,7 @@ This script requires jQuery so make sure you add the space saver script after it
 
 If you wish space saver to react to window resizes, you will need to include [jquery.debouncedresize.js](https://github.com/louisremi/jquery-smartresize) before the space saver script or define it as a dependency.
 
-This feature is set to false by default, but can be enabled by passing ```resizeable: true``` during initialisation.
+This feature is set to false by default, but can be enabled by passing ```resizable: true``` during initialisation.
 
 ### Usage:
 
