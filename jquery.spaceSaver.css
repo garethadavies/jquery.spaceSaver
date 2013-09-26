@@ -1,0 +1,20 @@
+/*------------------------------------*\
+	$$ jQuery - Space Saver
+\*------------------------------------*/
+
+.space-saver {
+  height: auto;
+  overflow: hidden;
+}
+.space-saver-footer {
+  margin-top: 20px;
+  width: 100%;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  cursor: pointer;
+}
+.space-saver-footer span {
+  padding: 0 6px;
+  position: relative;
+  top: -10px;
+}
