@@ -34,13 +34,13 @@ $('#container').spaceSaver({
 	// This height will be where the contents of the target div is cut-off and replaced by the 'show more'. You can adjust this to suit your content
 	heightLimit: 100,
 	// The background colour (Hex) of the 'show more/show less'
-  backgroundColour: '#fff',
+  backgroundColor: '#fff',
   // You can supply the html for including an 'open' icon
   iconOpen: '<i class="icon-up-open"></i>',
   // You can supply the html for including an 'closed' icon
   iconClosed: '<i class="icon-down-open"></i>',
   // You can set whether you want the plugin to refresh if the window is resized. This requires jquery.debouncedresize.js to be available
-  resizable: true
+  resizable: false
 });
 
 */
@@ -56,7 +56,7 @@ $('#container').spaceSaver({
 		backgroundColor: '#fff',
 		iconClosed: '',
 		iconOpen: '',
-		resizable: true
+		resizable: false
 
 	};
 
