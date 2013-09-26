@@ -66,4 +66,4 @@ $('#container').spaceSaver({
 });
 ```
 
-**NOTE:** The DOM must be rendered before you initialise the plugin so that it can access the elements height.
+**NOTE:** The DOM must be rendered before you initialise the plugin so that it can access the element's height.
